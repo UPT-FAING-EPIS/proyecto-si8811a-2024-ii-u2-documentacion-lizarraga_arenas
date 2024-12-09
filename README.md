@@ -241,5 +241,112 @@ sequenceDiagram
   Organizador->>Sistema: Finaliza supervisión
 ```
 
+### Diagrama de Clases
+
+```mermaid
+
+classDiagram
+    class CountdownTimer {
+        +calculateTimeLeft()
+        +render()
+        -timeLeft: Object
+    }
+    
+    class EventCard {
+        +render()
+    }
+    
+    class Footer {
+        +render()
+    }
+    
+    class Header {
+        +render()
+    }
+    
+    class Home {
+        +render()
+    }
+    
+    class Navbar {
+        +render()
+    }
+    
+    class Event {
+        +nombre: String
+        +fechaInicio: String
+        +fechaTermino: String
+        +facultad: String
+    }
+    
+    class AuthSlice {
+        +onChecking()
+        +onLogin(payload)
+        +onLogout(payload)
+    }
+    
+    class EventSlice {
+        +onAddNewEvent(payload)
+        +onDeleteEvent()
+        +onLoadEvents(payload)
+        +onSetActiveEvent(payload)
+    }
+    
+    class Store {
+        +configureStore()
+    }
+    
+    class useAuthStore {
+        +loginWithGoogle()
+        +checkAuthToken()
+        +startLogout()
+    }
+    
+    class useEventStore {
+        +startLoadingEvents()
+    }
+    
+    class categoriasApi {
+        +getCategorias()
+    }
+    
+    class equipoApi {
+        +getEquipos()
+    }
+    
+    class eventoApi {
+        +getEvents()
+    }
+    
+    class lugaresApi {
+        +getLugares()
+    }
+    
+    class participanteApi {
+        +getParticipantes()
+    }
+
+    Header --> Navbar
+    Home --> Header
+    Home --> Footer
+    Home --> CountdownTimer
+    Home --> EventCard
+    Home --> Event
+    
+    EventCard --> Event
+    
+    AuthSlice --> Store
+    EventSlice --> Store
+    
+    useAuthStore --> AuthSlice
+    useEventStore --> EventSlice
+
+    categoriasApi --> Home
+    equipoApi --> Home
+    eventoApi --> Home
+    lugaresApi --> Home
+    participanteApi --> Home
+```
+
 ## Conclusiones
 La plataforma representa un avance significativo en la gestión de los Juegos Florales, mejorando la transparencia, participación y eficiencia. Su diseño moderno asegura un desempeño óptimo, mientras que su escalabilidad permite adaptarse a futuras necesidades.
