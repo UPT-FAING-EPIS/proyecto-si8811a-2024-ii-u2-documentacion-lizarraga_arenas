@@ -130,12 +130,32 @@ Actualmente, la gestión y difusión de los Juegos Florales se realiza de forma 
 - **Sistema**: Procesa y publica información.
 
 ### Casos de Uso
+
+![image](https://github.com/user-attachments/assets/07dc6ddc-6855-46da-9773-5171792712a1)
+
 #### Caso de Uso: Registrar Eventos
 - **Actor Principal**: Organizador.
 - **Flujo Normal**:
   1. El organizador accede a la sección de eventos.
   2. Completa el formulario del evento.
   3. El sistema valida y registra el evento.
+
+```mermaid
+sequenceDiagram
+  actor Organizador
+  participant Sistema
+
+  Organizador->>Sistema: Accede a la sección "Eventos"
+  Organizador->>Sistema: Selecciona "Agregar Evento"
+  Organizador->>Sistema: Completa el formulario (nombre, descripción, categoría, fecha)
+  Sistema->>Sistema: Valida la información
+  alt Validación exitosa
+    Sistema->>Sistema: Guarda evento en la base de datos
+    Sistema->>Organizador: Muestra mensaje de confirmación
+  else Validación fallida
+    Sistema->>Organizador: Muestra error de validación
+  end
+```
 
 #### Caso de Uso: Consultar Resultados
 - **Actor Principal**: Estudiante.
@@ -144,6 +164,19 @@ Actualmente, la gestión y difusión de los Juegos Florales se realiza de forma 
   2. Visualiza los resultados en una tabla.
   3. Puede descargar un reporte en PDF.
 
+```
+sequenceDiagram
+  actor Estudiante
+  participant Sistema
+
+  Estudiante->>Sistema: Accede a la sección "Resultados"
+  Estudiante->>Sistema: Selecciona categoría o evento
+  Sistema->>Sistema: Consulta la base de datos
+  Sistema->>Estudiante: Muestra resultados en tabla
+  Estudiante->>Sistema: Solicita reporte en PDF
+  Sistema->>Estudiante: Descarga el reporte en PDF
+```
+
 #### Caso de Uso: Evaluar Actividades
 - **Actor Principal**: Juez.
 - **Flujo Normal**:
@@ -151,7 +184,44 @@ Actualmente, la gestión y difusión de los Juegos Florales se realiza de forma 
   2. Ingresa puntajes y comentarios.
   3. El sistema guarda las evaluaciones.
 
----
+``` 
+sequenceDiagram
+  actor Juez
+  participant Sistema
+
+  Juez->>Sistema: Accede a la sección "Evaluaciones"
+  Juez->>Sistema: Selecciona actividad a evaluar
+  Sistema->>Juez: Muestra lista de participantes
+  Juez->>Sistema: Asigna puntajes y comentarios
+  Sistema->>Sistema: Valida puntajes ingresados
+  Juez->>Sistema: Confirma evaluación
+  Sistema->>Sistema: Guarda resultados en la base de datos
+```
+
+```
+sequenceDiagram
+  actor Sistema
+  participant BaseDeDatos
+  participant Organizador
+
+  Sistema->>BaseDeDatos: Verifica si todas las evaluaciones están completas
+  Sistema->>Sistema: Calcula puntajes promedios/totales
+  Sistema->>BaseDeDatos: Almacena puntajes procesados
+  Sistema->>Sistema: Publica resultados en la plataforma
+  Sistema->>Organizador: Notifica que los resultados están disponibles
+```
+
+```
+sequenceDiagram
+  actor Organizador
+  participant Sistema
+
+  Organizador->>Sistema: Accede a "Supervisión de Actividades"
+  Organizador->>Sistema: Selecciona actividad en progreso
+  Sistema->>Organizador: Muestra estado de evaluaciones
+  Organizador->>Sistema: Envia recordatorios a jueces (si necesario)
+  Organizador->>Sistema: Finaliza supervisión
+```
 
 ## Conclusiones
 La plataforma representa un avance significativo en la gestión de los Juegos Florales, mejorando la transparencia, participación y eficiencia. Su diseño moderno asegura un desempeño óptimo, mientras que su escalabilidad permite adaptarse a futuras necesidades.
