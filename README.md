@@ -85,7 +85,15 @@ Actualmente, la gestión y difusión de los Juegos Florales se realiza de forma 
 ### Factibilidad Ambiental
 - Digitalización que reduce la huella ecológica.
 
----
+## Análisis de Procesos
+
+### Diagrama del Proceso Actual – Diagrama de actividades
+
+![image](https://github.com/user-attachments/assets/086fae9a-4bb5-4661-87eb-3bbb1d8c9452)
+
+### Diagrama del Proceso Propuesto – Diagrama de actividades Inicial
+
+![image](https://github.com/user-attachments/assets/21769ebf-5066-498c-8379-300b5fd69f60)
 
 ## Especificación de Requerimientos de Software
 
