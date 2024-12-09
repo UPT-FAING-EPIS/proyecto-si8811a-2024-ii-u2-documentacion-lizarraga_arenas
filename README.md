@@ -164,7 +164,7 @@ sequenceDiagram
   2. Visualiza los resultados en una tabla.
   3. Puede descargar un reporte en PDF.
 
-```
+```mermaid
 sequenceDiagram
   actor Estudiante
   participant Sistema
