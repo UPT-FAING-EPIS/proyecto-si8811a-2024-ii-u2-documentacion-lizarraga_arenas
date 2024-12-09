@@ -97,6 +97,46 @@ Cumplimiento con:
 
 ---
 
+## Análisis Financiero
+
+### Beneficios del Proyecto
+
+#### Beneficios tangibles: Son de fácil cuantificación, generalmente están relacionados con la reducción de recursos o talento humano.
+
+- Reducción de la necesidad de personal dedicado exclusivamente a la gestión manual de archivos.
+
+- Mejora en la planificación, control y uso eficiente de los recursos institucionales.
+
+- Disminución significativa de los costos operativos relacionados con el almacenamiento físico y la duplicación de información.
+
+- Incremento en la eficiencia de la comunicación entre departamentos y con los usuarios.
+
+#### Beneficios intangibles: No son fácilmente cuantificables y están relacionados con elementos o mejora en otros procesos de la organización.
+
+- Fomento de una comunidad interna más conectada y colaborativa.
+
+- Incremento en la satisfacción del usuario, tanto del personal como de los ciudadanos, al tener acceso a información de manera rápida y segura.
+
+- Confianza en la plataforma digital para el manejo de acervos, documentos y firmas electrónicas, lo que refuerza la seguridad y la transparencia en los procesos.
+
+- Reducción del estrés del personal y los usuarios al minimizar errores manuales y aumentar la automatización de tareas.
+
+- Obtención de ventajas competitivas en la gestión pública al implementar un sistema eficiente y moderno.
+
+### Criterios de Inversión
+
+#### Relación Beneficio/Costo (B/C)
+
+![image](https://github.com/user-attachments/assets/81e41cc4-4d6c-411f-8b00-90aefe1111ba)
+
+#### Valor Actual Neto (VAN)
+
+El VAN es positivo, esto significa que el proyecto genera rentabilidad por lo tanto es aceptable.
+
+#### Tasa Interna de Retorno (TIR)
+
+Nuestro TIR es mayor que nuestra tasa de descuento, este es otro índice que nuestro proyecto es viable.
+
 ## Conclusiones
 
 - El proyecto es técnicamente viable con hardware de bajo costo.
