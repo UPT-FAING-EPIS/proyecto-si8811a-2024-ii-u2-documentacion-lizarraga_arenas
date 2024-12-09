@@ -184,7 +184,7 @@ sequenceDiagram
   2. Ingresa puntajes y comentarios.
   3. El sistema guarda las evaluaciones.
 
-``` 
+```mermaid
 sequenceDiagram
   actor Juez
   participant Sistema
@@ -198,7 +198,16 @@ sequenceDiagram
   Sistema->>Sistema: Guarda resultados en la base de datos
 ```
 
-```
+#### Caso de Uso 4: Procesar Resultados
+- **Actor Principal**: Sistema (automatizado).
+- **Flujo Normal**:
+   1. El sistema verifica que todas las evaluaciones para un evento estén completas.
+   2. Calcula el puntaje promedio o total para cada participante según las reglas definidas.
+   3. Almacena los puntajes procesados en la base de datos.
+   4. Publica automáticamente los resultados en la sección "Resultados" de la plataforma.
+   5. Notifica a los organizadores que los resultados están disponibles.
+
+```mermaid
 sequenceDiagram
   actor Sistema
   participant BaseDeDatos
@@ -211,7 +220,16 @@ sequenceDiagram
   Sistema->>Organizador: Notifica que los resultados están disponibles
 ```
 
-```
+#### Caso de Uso 5: Supervisar Actividades
+- **Actor Principal**: Organizador.
+- **Flujo Normal**:
+	1. El organizador accede a la sección "Supervisión de Actividades".
+	2. Selecciona una actividad en progreso.
+	3. Visualiza el estado de las evaluaciones realizadas por los jueces.
+	4. Si es necesario, puede enviar recordatorios a los jueces para completar las evaluaciones.
+	5. El organizador finaliza la supervisión.
+
+```mermaid
 sequenceDiagram
   actor Organizador
   participant Sistema
