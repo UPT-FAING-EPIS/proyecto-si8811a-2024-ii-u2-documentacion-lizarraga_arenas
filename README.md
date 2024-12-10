@@ -126,9 +126,9 @@ RF3: Gestión de Participantes
 
 ```mermaid
 sequenceDiagram
-    actor MenuScreen
-    object ParticipantsScreen
-    object Participant
+    participant MenuScreen
+    participant ParticipantsScreen
+    participant Participant
 
     MenuScreen->>ParticipantsScreen: navigateToParticipantManagement()
     ParticipantsScreen->>Participant: fetchParticipants()
