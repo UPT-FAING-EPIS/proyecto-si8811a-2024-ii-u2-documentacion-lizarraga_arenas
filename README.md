@@ -164,7 +164,7 @@ sequenceDiagram
     Equipo->>EquiposScreen: return created team
     MenuScreen->>EquiposScreen: assignParticipantsToTeam()
     EquiposScreen->>Participante: assignToTeam()
-    Participant->>EquiposScreen: return assignment confirmation
+    Participante->>EquiposScreen: return assignment confirmation
     MenuScreen->>EquiposScreen: linkTeamToEvent()
     EquiposScreen->>Equipo: linkToEvent()
     Equipo->>EquiposScreen: return linked team to event
