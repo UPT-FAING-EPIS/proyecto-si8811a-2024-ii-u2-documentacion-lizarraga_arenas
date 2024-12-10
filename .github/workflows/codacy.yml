@@ -19,21 +19,22 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  security-events: write
+  actions: read
+  contents: read
+
 jobs:
   codacy-security-scan:
     name: Codacy Security Scan
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run tests with coverage
-        run: |
-          npm install
-          npm run test:coverage
-          
-      - name: Codacy Analysis CLI
-        uses: codacy/codacy-analysis-cli-action@v4.3.0
+      - name: Codacy Security Scan
+        uses: codacy/codacy-analysis-cli-action@master
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           verbose: true
