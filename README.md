@@ -81,6 +81,112 @@ Desarrollar una solución tecnológica que permita a los equipos universitarios 
 
 1. Diagrama de Secuencia (vista de diseño)
 
+RF1: Autenticación y Usuarios
+
+```mermaid
+sequenceDiagram
+    participant MyHomePage
+    participant AuthService
+    participant MyApp
+    participant MenuScreen
+
+    MyHomePage->>AuthService: login()
+    AuthService->>MyHomePage: Return login status
+    MyHomePage->>MyApp: Navigate to MenuScreen
+    MyHomePage->>MenuScreen: Display Menu
+    MyHomePage->>AuthService: logout()
+    AuthService->>MyHomePage: Return logout status
+```
+
+RF2: Gestión de Eventos
+
+```mermaid
+sequenceDiagram
+    participant MenuScreen
+    participant EventosScreen
+    participant Evento
+    participant AuthService
+
+    MenuScreen->>EventosScreen: navigateToEventManagement()
+    EventosScreen->>Evento: fetchEvents()
+    Evento->>EventosScreen: return list of events
+    EventosScreen->>MenuScreen: Display events
+    MenuScreen->>EventosScreen: createEvent()
+    EventosScreen->>Evento: saveEvent()
+    Evento->>EventosScreen: return created event
+    MenuScreen->>EventosScreen: editEvent()
+    EventosScreen->>Evento: updateEvent()
+    Evento->>EventosScreen: return updated event
+    MenuScreen->>EventosScreen: deleteEvent()
+    EventosScreen->>Evento: deleteEvent()
+    Evento->>EventosScreen: return deletion confirmation
+```
+
+RF3: Gestión de Participantes
+
+```mermaid
+sequenceDiagram
+    participant MenuScreen
+    participant ParticipantsScreen
+    participant Participant
+
+    MenuScreen->>ParticipantsScreen: navigateToParticipantManagement()
+    ParticipantsScreen->>Participant: fetchParticipants()
+    Participant->>ParticipantsScreen: return list of participants
+    ParticipantsScreen->>MenuScreen: Display participants
+    MenuScreen->>ParticipantsScreen: addParticipant()
+    ParticipantsScreen->>Participant: saveParticipant()
+    Participant->>ParticipantsScreen: return created participant
+    MenuScreen->>ParticipantsScreen: editParticipant()
+    ParticipantsScreen->>Participant: updateParticipant()
+    Participant->>ParticipantsScreen: return updated participant
+    MenuScreen->>ParticipantsScreen: assignParticipantToEvent()
+    ParticipantsScreen->>Participant: assignToEvent()
+    Participant->>ParticipantsScreen: return confirmation
+```
+
+RF4: Gestión de Equipos
+
+```mermaid
+sequenceDiagram
+    participant MenuScreen
+    participant EquiposScreen
+    participant Equipo
+    participant Participant
+
+    MenuScreen->>EquiposScreen: navigateToTeamManagement()
+    EquiposScreen->>Equipo: fetchEquipos()
+    Equipo->>EquiposScreen: return list of teams
+    EquiposScreen->>MenuScreen: Display teams
+    MenuScreen->>EquiposScreen: createTeam()
+    EquiposScreen->>Equipo: saveTeam()
+    Equipo->>EquiposScreen: return created team
+    MenuScreen->>EquiposScreen: assignParticipantsToTeam()
+    EquiposScreen->>Participant: assignToTeam()
+    Participant->>EquiposScreen: return assignment confirmation
+    MenuScreen->>EquiposScreen: linkTeamToEvent()
+    EquiposScreen->>Equipo: linkToEvent()
+    Equipo->>EquiposScreen: return linked team to event
+```
+
+RF5: Gestión de Ubicaciones
+
+```mermaid
+sequenceDiagram
+    participant MenuScreen
+    participant EquiposScreen
+    participant EventosScreen
+    participant Location
+
+    MenuScreen->>EventosScreen: navigateToLocationManagement()
+    EventosScreen->>Location: fetchLocations()
+    Location->>EventosScreen: return list of locations
+    EventosScreen->>MenuScreen: Display locations
+    MenuScreen->>EventosScreen: assignLocationToEvent()
+    EventosScreen->>Location: assignLocation()
+    Location->>EventosScreen: return location assignment confirmation
+```
+
 1. Diagrama de Colaboración (vista de diseño)
 
 
