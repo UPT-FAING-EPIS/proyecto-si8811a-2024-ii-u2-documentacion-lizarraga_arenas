@@ -153,7 +153,7 @@ sequenceDiagram
     participant MenuScreen
     participant EquiposScreen
     participant Equipo
-    participant Participant
+    participant Participante
 
     MenuScreen->>EquiposScreen: navigateToTeamManagement()
     EquiposScreen->>Equipo: fetchEquipos()
@@ -163,7 +163,7 @@ sequenceDiagram
     EquiposScreen->>Equipo: saveTeam()
     Equipo->>EquiposScreen: return created team
     MenuScreen->>EquiposScreen: assignParticipantsToTeam()
-    EquiposScreen->>Participant: assignToTeam()
+    EquiposScreen->>Participante: assignToTeam()
     Participant->>EquiposScreen: return assignment confirmation
     MenuScreen->>EquiposScreen: linkTeamToEvent()
     EquiposScreen->>Equipo: linkToEvent()
