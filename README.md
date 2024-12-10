@@ -206,7 +206,7 @@ flowchart TD
 Requerimiento RF-2: Visualizar Eventos
 ```mermaid
 flowchart TD
-    actor1 -->|Selecciona 'Ubicaciones'| sistema1
+    actor1[Usuario] -->|Selecciona 'Ubicaciones'| sistema1
     sistema1 -->|Solicita integración con Google Maps| googleMaps[GoogleMaps]
     googleMaps -->|Muestra mapa| sistema1
     sistema1 -->|Muestra ubicaciones en mapa| actor1
@@ -215,7 +215,7 @@ flowchart TD
 Requerimiento RF-4: Visualizar Equipos
 ```mermaid
 flowchart TD
-    actor1 -->|Selecciona 'Equipos'| sistema1
+    actor1[Usuario] -->|Selecciona 'Equipos'| sistema1
     sistema1 -->|Muestra lista de equipos| actor1
     sistema1 -->|Muestra participantes y buscador| actor1
 ```
@@ -223,7 +223,7 @@ flowchart TD
 Requerimiento RF-5: Visualizar Participantes
 ```mermaid
 flowchart TD
-    actor1 -->|Selecciona 'Eventos'| sistema1
+    actor1[Usuario] -->|Selecciona 'Eventos'| sistema1
     sistema1 -->|Solicita listado de participantes| actor1
     actor1 -->|Muestra listado con opciones de agregar y editar| sistema1
 ```
@@ -231,7 +231,7 @@ flowchart TD
 Requerimiento RF-6: Visualizar Coordinadores Docentes
 ```mermaid
 flowchart TD
-    actor1 -->|Selecciona 'Coordinadores Docentes'| sistema1
+    actor1[Usuario] -->|Selecciona 'Coordinadores Docentes'| sistema1
     sistema1 -->|Solicita información de coordinadores docentes| actor1
     actor1 -->|Muestra listado de coordinadores docentes| sistema1
 ```
@@ -240,7 +240,7 @@ Requerimiento RF-7: Visualizar Coordinadores Estudiantes
 
 ```mermaid
 flowchart TD
-    actor1 -->|Selecciona 'Coordinadores Estudiantes'| sistema1
+    actor1[Usuario] -->|Selecciona 'Coordinadores Estudiantes'| sistema1
     sistema1 -->|Solicita información de coordinadores estudiantes| actor1
     actor1 -->|Muestra listado de coordinadores con información| sistema1
 ```
