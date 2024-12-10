@@ -190,7 +190,60 @@ sequenceDiagram
 
 1. Diagrama de Colaboración (vista de diseño)
 
+Requerimiento RF-1: Iniciar Sesión
+```mermaid
+flowchart TD
+    actor1[Usuario] -->|Inicia la aplicación| sistema1[Sistema]
+    sistema1 -->|Muestra página de inicio con opciones| actor1
+    actor1 -->|Hace clic en 'Ingresar con Cuenta Microsoft'| sistema1
+    sistema1 -->|Solicita inicio de sesión| microsoftAuth[MicrosoftAuth]
+    microsoftAuth -->|Muestra formulario de inicio de sesión| sistema1
+    actor1 -->|Ingresa correo y contraseña| microsoftAuth
+    microsoftAuth -->|Valida credenciales| sistema1
+    sistema1 -->|Muestra menú principal| actor1
+```
 
+Requerimiento RF-2: Visualizar Eventos
+```mermaid
+flowchart TD
+    actor1 -->|Selecciona 'Ubicaciones'| sistema1
+    sistema1 -->|Solicita integración con Google Maps| googleMaps[GoogleMaps]
+    googleMaps -->|Muestra mapa| sistema1
+    sistema1 -->|Muestra ubicaciones en mapa| actor1
+```
+
+Requerimiento RF-4: Visualizar Equipos
+```mermaid
+flowchart TD
+    actor1 -->|Selecciona 'Equipos'| sistema1
+    sistema1 -->|Muestra lista de equipos| actor1
+    sistema1 -->|Muestra participantes y buscador| actor1
+```
+
+Requerimiento RF-5: Visualizar Participantes
+```mermaid
+flowchart TD
+    actor1 -->|Selecciona 'Eventos'| sistema1
+    sistema1 -->|Solicita listado de participantes| actor1
+    actor1 -->|Muestra listado con opciones de agregar y editar| sistema1
+```
+
+Requerimiento RF-6: Visualizar Coordinadores Docentes
+```mermaid
+flowchart TD
+    actor1 -->|Selecciona 'Coordinadores Docentes'| sistema1
+    sistema1 -->|Solicita información de coordinadores docentes| actor1
+    actor1 -->|Muestra listado de coordinadores docentes| sistema1
+```
+
+Requerimiento RF-7: Visualizar Coordinadores Estudiantes
+
+```mermaid
+flowchart TD
+    actor1 -->|Selecciona 'Coordinadores Estudiantes'| sistema1
+    sistema1 -->|Solicita información de coordinadores estudiantes| actor1
+    actor1 -->|Muestra listado de coordinadores con información| sistema1
+```
 
 1. Diagrama de Objetos
 
