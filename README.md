@@ -126,9 +126,9 @@ RF3: Gestión de Participantes
 
 ```mermaid
 sequenceDiagram
-    participant MenuScreen
-    participant ParticipantsScreen
-    participant Participant
+    actor MenuScreen
+    actor ParticipantsScreen
+    actor Participant
 
     MenuScreen->>ParticipantsScreen: navigateToParticipantManagement()
     ParticipantsScreen->>Participant: fetchParticipants()
@@ -143,6 +143,7 @@ sequenceDiagram
     MenuScreen->>ParticipantsScreen: assignParticipantToEvent()
     ParticipantsScreen->>Participant: assignToEvent()
     Participant->>ParticipantsScreen: return confirmation
+
 ```
 
 RF4: Gestión de Equipos
