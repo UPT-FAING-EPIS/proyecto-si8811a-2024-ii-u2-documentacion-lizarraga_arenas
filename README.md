@@ -126,23 +126,23 @@ RF3: Gestión de Participantes
 
 ```mermaid
 sequenceDiagram
-    actor MenuScreen
-    actor ParticipantsScreen
-    actor Participant
+    participant MenuScreen
+    participant ParticipantsScreen
+    participant Participante
 
     MenuScreen->>ParticipantsScreen: navigateToParticipantManagement()
-    ParticipantsScreen->>Participant: fetchParticipants()
-    Participant->>ParticipantsScreen: return list of participants
+    ParticipantsScreen->>Participante: fetchParticipants()
+    Participante->>ParticipantsScreen: return list of participants
     ParticipantsScreen->>MenuScreen: Display participants
     MenuScreen->>ParticipantsScreen: addParticipant()
-    ParticipantsScreen->>Participant: saveParticipant()
-    Participant->>ParticipantsScreen: return created participant
+    ParticipantsScreen->>Participante: saveParticipant()
+    Participante->>ParticipantsScreen: return created participant
     MenuScreen->>ParticipantsScreen: editParticipant()
-    ParticipantsScreen->>Participant: updateParticipant()
-    Participant->>ParticipantsScreen: return updated participant
+    ParticipantsScreen->>Participante: updateParticipant()
+    Participante->>ParticipantsScreen: return updated participant
     MenuScreen->>ParticipantsScreen: assignParticipantToEvent()
-    ParticipantsScreen->>Participant: assignToEvent()
-    Participant->>ParticipantsScreen: return confirmation
+    ParticipantsScreen->>Participante: assignToEvent()
+    Participante->>ParticipantsScreen: return confirmation
 
 ```
 
