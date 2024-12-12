@@ -169,7 +169,110 @@ classDiagram
 
 - **Diagrama de Clases**: Describe las entidades y relaciones clave.
 
+```mermaid
 
+classDiagram
+    class CountdownTimer {
+        +calculateTimeLeft()
+        +render()
+        -timeLeft: Object
+    }
+    
+    class EventCard {
+        +render()
+    }
+    
+    class Footer {
+        +render()
+    }
+    
+    class Header {
+        +render()
+    }
+    
+    class Home {
+        +render()
+    }
+    
+    class Navbar {
+        +render()
+    }
+    
+    class Event {
+        +nombre: String
+        +fechaInicio: String
+        +fechaTermino: String
+        +facultad: String
+    }
+    
+    class AuthSlice {
+        +onChecking()
+        +onLogin(payload)
+        +onLogout(payload)
+    }
+    
+    class EventSlice {
+        +onAddNewEvent(payload)
+        +onDeleteEvent()
+        +onLoadEvents(payload)
+        +onSetActiveEvent(payload)
+    }
+    
+    class Store {
+        +configureStore()
+    }
+    
+    class useAuthStore {
+        +loginWithGoogle()
+        +checkAuthToken()
+        +startLogout()
+    }
+    
+    class useEventStore {
+        +startLoadingEvents()
+    }
+    
+    class categoriasApi {
+        +getCategorias()
+    }
+    
+    class equipoApi {
+        +getEquipos()
+    }
+    
+    class eventoApi {
+        +getEvents()
+    }
+    
+    class lugaresApi {
+        +getLugares()
+    }
+    
+    class participanteApi {
+        +getParticipantes()
+    }
+
+    Header --> Navbar
+    Home --> Header
+    Home --> Footer
+    Home --> CountdownTimer
+    Home --> EventCard
+    Home --> Event
+    
+    EventCard --> Event
+    
+    AuthSlice --> Store
+    EventSlice --> Store
+    
+    useAuthStore --> AuthSlice
+    useEventStore --> EventSlice
+
+    categoriasApi --> Home
+    equipoApi --> Home
+    eventoApi --> Home
+    lugaresApi --> Home
+    participanteApi --> Home
+```
 
 - **Diagrama de Base de Datos (Relacional o No Relacional)**: Representa el modelo de datos utilizado por el sistema.
 
@@ -238,13 +341,24 @@ erDiagram
 
 ### Vista de Implementación (Vista de Desarrollo)
 - **Diagrama de Arquitectura de Software (Paquetes)**: Detalla los módulos y su interacción.
+
+![image](https://github.com/user-attachments/assets/bf54624e-453a-44e7-bac3-92d35962670b)
+
 - **Diagrama de Componentes**: Relación entre frontend y backend.
+
+![image](https://github.com/user-attachments/assets/7ae71b1c-3a8f-4958-8453-a56af30ee305)
+
 
 ### Vista de Procesos
 - **Diagrama de Procesos del Sistema (Diagrama de Actividad)**: Muestra el flujo de procesos clave como inscripción, evaluación y consulta de resultados.
 
+![image](https://github.com/user-attachments/assets/af6ebcdb-2c7c-4faa-b095-8f4fe8c3768a)
+
+
 ### Vista de Despliegue (Vista Física)
 - **Diagrama de Despliegue**: Representa cómo los componentes están alojados en la infraestructura en la nube.
+
+![image](https://github.com/user-attachments/assets/1f0e1ec5-4b3f-4ef7-a6cf-3ae70d895435)
 
 
 ---
