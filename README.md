@@ -69,8 +69,35 @@ Incluye el diseño e implementación de:
 
 - **Diagrama de Secuencia (Vista de Diseño)**: Muestra el flujo de interacciones entre componentes del sistema.
 
-![image](https://github.com/user-attachments/assets/6b206c96-25a4-4bec-a22e-d28c8093a088)
-
+```mermaid
+sequenceDiagram
+    actor Usuario
+    
+    Usuario->>Home: Abrir la aplicación
+    Home->>Header: Renderizar Header
+    Home->>Navbar: Renderizar Navbar
+    Home->>Footer: Renderizar Footer
+    Home->>CountdownTimer: Renderizar CountdownTimer
+    Home->>EventCard: Renderizar EventCard
+    
+    Usuario->>useAuthStore: Iniciar sesión (loginWithGoogle)
+    useAuthStore->>AuthSlice: Llamar a loginWithGoogle()
+    AuthSlice->>AuthSlice: Procesar autenticación
+    AuthSlice-->>useAuthStore: Respuesta de autenticación
+    useAuthStore-->>Usuario: Usuario autenticado
+    
+    Usuario->>useEventStore: Cargar eventos (startLoadingEvents)
+    useEventStore->>EventSlice: Llamar a startLoadingEvents()
+    EventSlice->>eventoApi: Llamar a getEvents()
+    eventoApi-->>EventSlice: Respuesta de eventos
+    EventSlice-->>useEventStore: Actualizar eventos
+    useEventStore-->>Home: Renderizar eventos
+    
+    Usuario->>EventCard: Seleccionar evento
+    EventCard->>EventSlice: Llamar a onSetActiveEvent()
+    EventSlice-->>Home: Actualizar evento activo
+    Home->>EventCard: Mostrar detalles del evento
+```
 
 - **Diagrama de Colaboración (Vista de Diseño)**: Describe cómo interactúan los objetos para completar una tarea.
 
