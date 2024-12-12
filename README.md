@@ -125,6 +125,37 @@ Facilitar la inscripción y gestión de equipos participantes en los juegos de a
 - Preferencia por un diseño visual acorde a la temática universitaria y un enfoque práctico para usuarios no técnicos.
 1. ### <a name="iii.​análisis_de_procesos"></a><a name="_toc_250004"></a>**Análisis de Procesos**
 1) <a name="a)​diagrama_del_proceso_actual_–_diagram"></a>Diagrama del Proceso Actual – Diagrama de actividades:
+```mermaid
+flowchart TD
+    Start((Inicio)) --> Auth[Autenticación]
+    Auth --> Decision{¿Rol?}
+    
+    %% Flujo Administrador
+    Decision -->|Administrador| GestionEventos[Gestión de Eventos]
+    GestionEventos --> CrearEvento[Crear Evento]
+    GestionEventos --> ConfigurarEvento[Configurar Evento]
+    ConfigurarEvento --> DefEquipos[Definir Equipos]
+    ConfigurarEvento --> DefCategorias[Definir Categorías]
+    
+    %% Flujo Participante
+    Decision -->|Participante| VerEventos[Ver Eventos]
+    VerEventos --> Inscripcion[Inscribirse en Evento]
+    Inscripcion --> UnirseEquipo[Unirse a Equipo]
+    UnirseEquipo --> Participar[Participar en Evento]
+    
+    %% Estados finales
+    DefEquipos --> EventoListo[Evento Listo]
+    DefCategorias --> EventoListo
+    Participar --> Fin((Fin))
+    EventoListo --> Fin
+
+    %% Estilo
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px
+    classDef process fill:#dbeaff,stroke:#0066cc
+    classDef decision fill:#ffe6cc,stroke:#ff9933
+    class GestionEventos,CrearEvento,ConfigurarEvento,VerEventos,Inscripcion,UnirseEquipo,Participar process
+    class Decision decision
+```
 
 1) <a name="b)​diagrama_del_proceso_propuesto_–_diag"></a>Diagrama del Proceso Propuesto – Diagrama de actividades Inicial:
 1. ### <a name="iv.​especificación_de_requerimientos_de_"></a><a name="_toc_250003"></a>**Especificación de requerimientos de software**
