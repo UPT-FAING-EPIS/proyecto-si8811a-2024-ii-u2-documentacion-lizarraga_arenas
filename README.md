@@ -57,21 +57,92 @@ Incluye el diseño e implementación de:
 ## 3. Representación de la Arquitectura del Sistema
 
 ### Vista de Caso de Uso
-Incluye actores como estudiantes, organizadores y jueces que interactúan con la plataforma para registro, supervisión y evaluación de eventos.
+Incluye actores como:
+- **Estudiante**: Se registra, participa y consulta resultados.
+- **Organizador**: Gestiona eventos y registra puntajes.
+- **Juez**: Evalúa actividades y envía observaciones.
 
 ### Vista Lógica
-- **Diagrama de Subsistemas**: Describe la relación entre módulos principales.
-- **Diagrama de Clases**: Representa las entidades clave del sistema.
+- **Diagrama de Subsistemas (Paquetes)**: Representa los módulos principales del sistema.
+- **Diagrama de Secuencia (Vista de Diseño)**: Muestra el flujo de interacciones entre componentes del sistema.
+- **Diagrama de Colaboración (Vista de Diseño)**: Describe cómo interactúan los objetos para completar una tarea.
+- **Diagrama de Objetos**: Representa instancias específicas de clases en un momento dado.
+- **Diagrama de Clases**: Describe las entidades y relaciones clave.
+- **Diagrama de Base de Datos (Relacional o No Relacional)**: Representa el modelo de datos utilizado por el sistema.
 
-### Vista de Implementación
-- Uso de **Amazon S3** para almacenamiento y seguridad de datos.
-- Diagrama de componentes para mostrar la relación entre el frontend y backend.
+```mermaid
+erDiagram
+    USUARIOS {
+        int id PK
+        string nombre
+        string email
+        string password
+        string rol
+        datetime created_at
+        datetime updated_at
+    }
+
+    EVENTOS {
+        int id PK
+        string nombre
+        string descripcion
+        datetime fecha
+        string ubicacion
+        string estado
+        int admin_id FK
+        datetime created_at
+    }
+
+    EQUIPOS {
+        int id PK
+        string nombre
+        string categoria
+        int evento_id FK
+        datetime created_at
+    }
+
+    PARTICIPANTES {
+        int id PK
+        int usuario_id FK
+        string telefono
+        string estado
+        datetime created_at
+    }
+
+    EQUIPO_PARTICIPANTE {
+        int equipo_id PK,FK
+        int participante_id PK,FK
+        datetime fecha_union
+    }
+
+    INSCRIPCIONES {
+        int id PK
+        int evento_id FK
+        int participante_id FK
+        datetime fecha_inscripcion
+        string estado
+        string tipo_pago
+    }
+
+    USUARIOS ||--o{ EVENTOS : "administra"
+    EVENTOS ||--o{ EQUIPOS : "tiene"
+    EQUIPOS ||--o{ EQUIPO_PARTICIPANTE : "contiene"
+    PARTICIPANTES ||--o{ EQUIPO_PARTICIPANTE : "pertenece"
+    EVENTOS ||--o{ INSCRIPCIONES : "tiene"
+    PARTICIPANTES ||--o{ INSCRIPCIONES : "realiza"
+    USUARIOS ||--|| PARTICIPANTES : "es"
+```
+
+### Vista de Implementación (Vista de Desarrollo)
+- **Diagrama de Arquitectura de Software (Paquetes)**: Detalla los módulos y su interacción.
+- **Diagrama de Componentes**: Relación entre frontend y backend.
 
 ### Vista de Procesos
-Incluye diagramas de actividad para visualizar el flujo de tareas principales.
+- **Diagrama de Procesos del Sistema (Diagrama de Actividad)**: Muestra el flujo de procesos clave como inscripción, evaluación y consulta de resultados.
 
-### Vista de Despliegue
-Describe cómo los componentes del sistema están alojados en la infraestructura de la nube.
+### Vista de Despliegue (Vista Física)
+- **Diagrama de Despliegue**: Representa cómo los componentes están alojados en la infraestructura en la nube.
+
 
 ---
 
