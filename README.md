@@ -126,6 +126,7 @@ Facilitar la inscripción y gestión de equipos participantes en los juegos de a
 1. ### <a name="iii.​análisis_de_procesos"></a><a name="_toc_250004"></a>**Análisis de Procesos**
 1) <a name="a)​diagrama_del_proceso_actual_–_diagram"></a>Diagrama del Proceso Actual – Diagrama de actividades:
 
+no cuenta con diagrama de proceso actual
 
 1) <a name="b)​diagrama_del_proceso_propuesto_–_diag"></a>Diagrama del Proceso Propuesto – Diagrama de actividades Inicial:
 
