@@ -57,14 +57,21 @@ Incluye el diseño e implementación de:
 ## 3. Representación de la Arquitectura del Sistema
 
 ### Vista de Caso de Uso
-Incluye actores como:
-- **Estudiante**: Se registra, participa y consulta resultados.
-- **Organizador**: Gestiona eventos y registra puntajes.
-- **Juez**: Evalúa actividades y envía observaciones.
+
+![image](https://github.com/user-attachments/assets/03e93043-113e-441c-9e8e-25ab744315b7)
+
 
 ### Vista Lógica
 - **Diagrama de Subsistemas (Paquetes)**: Representa los módulos principales del sistema.
+
+![image](https://github.com/user-attachments/assets/ae187422-a72c-4fce-ae1c-1c9ebaee890e)
+
+
 - **Diagrama de Secuencia (Vista de Diseño)**: Muestra el flujo de interacciones entre componentes del sistema.
+
+![image](https://github.com/user-attachments/assets/6b206c96-25a4-4bec-a22e-d28c8093a088)
+
+
 - **Diagrama de Colaboración (Vista de Diseño)**: Describe cómo interactúan los objetos para completar una tarea.
 
 ```mermaid
@@ -161,6 +168,9 @@ classDiagram
 ```
 
 - **Diagrama de Clases**: Describe las entidades y relaciones clave.
+
+
+
 - **Diagrama de Base de Datos (Relacional o No Relacional)**: Representa el modelo de datos utilizado por el sistema.
 
 ```mermaid
