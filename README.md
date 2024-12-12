@@ -66,7 +66,100 @@ Incluye actores como:
 - **Diagrama de Subsistemas (Paquetes)**: Representa los módulos principales del sistema.
 - **Diagrama de Secuencia (Vista de Diseño)**: Muestra el flujo de interacciones entre componentes del sistema.
 - **Diagrama de Colaboración (Vista de Diseño)**: Describe cómo interactúan los objetos para completar una tarea.
+
+```mermaid
+flowchart LR
+    UI[":InterfazUsuario"]
+    Auth[":Autenticacion"]
+    EG[":GestorEventos"]
+    TG[":GestorEquipos"]
+    PG[":GestorParticipantes"]
+    DB[":BaseDatos"]
+
+    UI <--> |"1: autenticarUsuario()"| Auth
+    Auth <--> |"2: validarCredenciales()"| DB
+    
+    UI <--> |"3: gestionarEvento()"| EG
+    EG <--> |"4: CRUD eventos"| DB
+    
+    UI <--> |"5: gestionarEquipo()"| TG
+    TG <--> |"6: CRUD equipos"| DB
+    
+    UI <--> |"7: gestionarParticipante()"| PG
+    PG <--> |"8: CRUD participantes"| DB
+    
+    EG <--> |"9: asociar()"| TG
+    TG <--> |"10: asignar()"| PG
+
+    classDef interface fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef controller fill:#dbeaff,stroke:#0066cc;
+    classDef database fill:#ffe6cc,stroke:#ff9933;
+    
+    class UI interface;
+    class Auth,EG,TG,PG controller;
+    class DB database;
+```
+
 - **Diagrama de Objetos**: Representa instancias específicas de clases en un momento dado.
+
+```mermaid
+classDiagram
+    class admin_Usuario {
+        +id: 1
+        +nombre: Juan Admin
+        +email: admin@evento.com
+        +rol: ADMINISTRADOR
+    }
+
+    class torneoPadel_Evento {
+        +id: 1
+        +nombre: Torneo Padel 2024
+        +descripcion: Torneo amateur
+        +fecha: 2024-05-15
+        +ubicacion: Club Deportivo
+        +estado: ACTIVO
+    }
+
+    class equipo1_Equipo {
+        +id: 1
+        +nombre: Los Campeones
+        +categoria: Amateur
+    }
+
+    class equipo2_Equipo {
+        +id: 2
+        +nombre: Padel Stars
+        +categoria: Amateur
+    }
+
+    class participante1_Participante {
+        +id: 1
+        +nombre: Ana López
+        +email: ana@mail.com
+        +telefono: 123456789
+    }
+
+    class participante2_Participante {
+        +id: 2
+        +nombre: Carlos Ruiz
+        +email: carlos@mail.com
+        +telefono: 987654321
+    }
+
+    class inscripcion1_Inscripcion {
+        +id: 1
+        +fechaInscripcion: 2024-04-01
+        +estado: CONFIRMADA
+    }
+
+    admin_Usuario --> torneoPadel_Evento : gestiona
+    torneoPadel_Evento --> equipo1_Equipo : contiene
+    torneoPadel_Evento --> equipo2_Equipo : contiene
+    equipo1_Equipo --> participante1_Participante : tiene
+    equipo2_Equipo --> participante2_Participante : tiene
+    participante1_Participante --> inscripcion1_Inscripcion : realiza
+```
+
 - **Diagrama de Clases**: Describe las entidades y relaciones clave.
 - **Diagrama de Base de Datos (Relacional o No Relacional)**: Representa el modelo de datos utilizado por el sistema.
 
