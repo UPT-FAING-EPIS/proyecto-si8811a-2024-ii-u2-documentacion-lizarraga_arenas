@@ -344,6 +344,76 @@ flowchart TD
 
 1. Diagrama de Base de Datos
 
+```mermaid
+classDiagram
+    class Usuario {
+        -Long id
+        -String nombre
+        -String email
+        -String password
+        +registrar()
+        +autenticar()
+        +actualizarPerfil()
+    }
+
+    class Evento {
+        -Long id
+        -String nombre
+        -String descripcion
+        -Date fecha
+        -String ubicacion
+        -Estado estado
+        +crear()
+        +modificar()
+        +cancelar()
+        +agregarEquipo()
+    }
+
+    class Equipo {
+        -Long id
+        -String nombre
+        -String categoria
+        +crearEquipo()
+        +agregarMiembro()
+        +eliminarMiembro()
+        +obtenerMiembros()
+    }
+
+    class Participante {
+        -Long id
+        -String nombre
+        -String email
+        -String telefono
+        +registrar()
+        +actualizarDatos()
+        +asignarEquipo()
+    }
+
+    class Administrador {
+        -Long id
+        -String rol
+        +gestionarEventos()
+        +gestionarEquipos()
+        +gestionarParticipantes()
+    }
+
+    class Inscripcion {
+        -Long id
+        -Date fechaInscripcion
+        -Estado estado
+        +registrarInscripcion()
+        +confirmarPago()
+        +cancelarInscripcion()
+    }
+
+    Administrador --|> Usuario
+    Participante --|> Usuario
+    Evento "1" -- "0.." Equipo
+    Equipo "1" -- "1.." Participante
+    Evento "1" -- "0.." Inscripcion
+    Inscripcion "0..*" -- "1" Participante
+```
+
 1. Vista de Implementación: (vista de desarrollo)
 
 1. Diagrama de Arquitectura de Software
