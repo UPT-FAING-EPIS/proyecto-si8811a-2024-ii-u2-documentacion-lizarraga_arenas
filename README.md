@@ -125,6 +125,10 @@ Facilitar la inscripción y gestión de equipos participantes en los juegos de a
 - Preferencia por un diseño visual acorde a la temática universitaria y un enfoque práctico para usuarios no técnicos.
 1. ### <a name="iii.​análisis_de_procesos"></a><a name="_toc_250004"></a>**Análisis de Procesos**
 1) <a name="a)​diagrama_del_proceso_actual_–_diagram"></a>Diagrama del Proceso Actual – Diagrama de actividades:
+
+
+1) <a name="b)​diagrama_del_proceso_propuesto_–_diag"></a>Diagrama del Proceso Propuesto – Diagrama de actividades Inicial:
+
 ```mermaid
 flowchart TD
     Start((Inicio)) --> Auth[Autenticación]
@@ -157,7 +161,6 @@ flowchart TD
     class Decision decision
 ```
 
-1) <a name="b)​diagrama_del_proceso_propuesto_–_diag"></a>Diagrama del Proceso Propuesto – Diagrama de actividades Inicial:
 1. ### <a name="iv.​especificación_de_requerimientos_de_"></a><a name="_toc_250003"></a>**Especificación de requerimientos de software**
 
 1) <a name="a)​cuadro_de_requerimientos_funcionales_"></a>Cuadro de Requerimientos funcionales Inicial:
